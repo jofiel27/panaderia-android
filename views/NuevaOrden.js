@@ -63,6 +63,7 @@ const handleSignIn = (userCredential) =>{
        
         alignItems:'center',
         justifyContent:'center',
+        height:'100%'
         
       }} >
         <Image source={{ uri }} style = {[styles.image, StyleSheet.absoluteFill]} />
@@ -87,33 +88,18 @@ const handleSignIn = (userCredential) =>{
             <TextInput value={password} onChangeText={(text) => setPassword(text)}  style ={styles.input} placeholder='Contraseña' secureTextEntry={true} />          
            
           </View> 
-        <Text style= {{fontSize:17, fontWeight:400, color:'black', }}>Crear Cuenta</Text>
-          <View>
-            <Text style= {{fontSize:17, fontWeight:400, color:'black', }}>Email </Text>
-            <TextInput value={email2} onChangeText={(text) => setEmail2(text)} style ={styles.input} placeholder='E-mail'/>          
-          </View>
-          <View>
-            <Text style= {{fontSize:17, fontWeight:400, color:'black', }}>Contraseña </Text>
-            <TextInput value={password2} onChangeText={(text) => setPassword2(text)}  style ={styles.input} placeholder='Contraseña' secureTextEntry={true} />          
-           
-          </View> 
-          <View>
-            <Text style= {{fontSize:17, fontWeight:400, color:'black', }}>Confirmar Contraseña </Text>
-            <TextInput value={confirmPassword} onChangeText={(text) => setConfirmPassword(text)} style ={styles.input} placeholder='Validar Constraseña' secureTextEntry={true} />          
-          </View>
+       
           <TouchableOpacity onPress={handleSignIn} style= {styles.button} >
             <Text style= {{fontSize:17, fontWeight:400, color:'white', }}>Acceso</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity onPress={() => {
-            if(password2 === confirmPassword){
-              handleCreateAccount()
-            }else {
-              Alert.alert('Cuenta No Creada, debes confirmar la contraseña');
-            }
-          }}style= {styles.button} >
-            <Text style= {{fontSize:17, fontWeight:400, color:'white', }}>Validar una Cuenta</Text>
-          </TouchableOpacity>
+          <TouchableOpacity
+              onPress={() => navigation.navigate('Creacion')} style= {styles.button}
+               >
+                     <Text style={{fontSize:17, fontWeight:400, color:'white', }}>
+                      Crear Cuenta
+                    </Text>
+         </TouchableOpacity>
           </View>
           </View>
         </View>
@@ -163,7 +149,7 @@ const styles = StyleSheet.create({
   },
   login:{
     width:350,
-    height:840,
+    height:540,
     borderColor:'#fff',
     borderWidth: 1,
     borderRadius:30,

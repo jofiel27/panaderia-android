@@ -14,6 +14,7 @@ import { StyleSheet} from 'react-native';
   import ResumenPedido from './views/ResumenPedido';
   import ProgresoPedido from './views/ProgresoPedido';
   import Creacion from './views/Creacion';
+  import NuevaCuenta from './views/NuevaCuenta';
 
 
    //importar state de context 
@@ -95,6 +96,13 @@ import { StyleSheet} from 'react-native';
             component={ResumenPedido}
             options={{
               title:"Pedido"
+            }}
+                    />
+                     <Stack.Screen
+            name= "NuevaCuenta"
+            component={NuevaCuenta}
+            options={{
+              title:"Crear Cuenta"
             }}
                     />
         </Stack.Navigator>
